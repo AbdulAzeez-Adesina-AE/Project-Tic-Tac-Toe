@@ -1,0 +1,143 @@
+
+
+# Board List with all 9 positions represented with an empty string
+
+board = [' ' for _ in range(9)]
+
+# Smaple introduction to the game
+def introduction():
+    print("Let's Play a Tic-Tac-Toe game.")
+    print("Here is what our game boards looks like before we begin: ")
+    print("  1 | 2 | 3 ")
+    print(" -----------")
+    print("  4 | 5 | 6 ")
+    print(" -----------")
+    print("  7 | 8 | 9 ")
+    print("Each number represents a move/position where you can place your Marker/Identifier.")
+    print("\n")
+    print("Let's Play")
+
+
+#Prompt to identify players and assign turns.
+
+def identify_players():
+    while True:
+        turns = input("Choose between X or O: ")
+        if turns.lower()== "x":
+            print("You are player 1, and you go first. ")
+            return 'X', 'O'
+        elif turns.lower()== "o":
+            print("You are player 2 and you go second. ")
+            return 'X', 'O'
+        else:
+            print(f"Invalid Selection")
+
+#Prompt to start the game.
+
+def game_start():
+        while True:
+            start = input("Would you like to start the game now? Yes/ No. ")
+            if start.lower() == "yes" or start.lower() == 'y':
+                return True
+            elif start.lower() == "no" or start.lower() == 'n':
+                print("Game is yet to start")    
+            else:
+                print("Inavlid choice")
+
+
+# Sample Tic Tac Toe Game Board
+
+def gamne_board():
+    row1 = ['  ', '  ', '  ']
+    row2 = ['  ', '  ', '  ']
+    row3 = ['  ', '  ', '  ']
+    print (row1)
+    print (row2)
+    print (row3)
+
+def print_board():
+    for i in range(3):
+        print("_ " * 3)
+
+def print_boards():
+    for i in range(3):
+        row = [board[i * 3 + j] for j in range(3)]
+        print(" | ".join(row))
+        if i < 2:
+            print("-" * 9)
+              
+# Players making move
+def make_move(player, position):
+     board[position - 1] = player
+        
+#Checking if all positions on board have been filled
+
+def is_board_full():
+    for cell in board:
+        if cell == ' ':
+            return False
+    return True
+
+# how to check if we have a winner
+def is_winner(player):
+    return (
+        (board[0] == board[1] == board[2] == player) or
+        (board[3] == board[4] == board[5] == player) or
+        (board[6] == board[7] == board[8] == player) or
+        (board[0] == board[3] == board[6] == player) or
+        (board[1] == board[4] == board[7] == player) or
+        (board[2] == board[5] == board[8] == player) or
+        (board[0] == board[4] == board[8] == player) or
+        (board[2] == board[4] == board[6] == player)
+    )
+
+def tic_tac_toe_game():
+    introduction()
+   
+    player1, player2 = identify_players()
+    game_running = game_start()
+
+    print("Game Begins")
+
+    #if not game_running:
+        #print("Game not started.")
+        #return game_running
+
+    current_player = player1
+
+    while True:
+
+        print_boards()
+        move = input(f"Player {current_player}, choose a cell number (1-9): ")
+
+        if not move.isdigit():
+            print("Invalid input. Please enter a digit within the specified range.")
+            continue
+
+        move = int(move)
+
+        if move > 9 or move <= 0:
+            print(f"Out of range, please follow instructions. ")
+            continue
+
+        if board[move - 1] == ' ':
+            make_move(current_player, move)
+
+            if is_winner(current_player):
+                print_boards()
+                print(f"Player {current_player} wins!")
+                break
+
+            if is_board_full():
+                print_boards()
+                print("It's a draw!")
+                break
+
+            if current_player == player1:
+                current_player = player2
+            else:
+                current_player = player1
+        else:
+            print("Cell already taken. Try again.")
+
+tic_tac_toe_game()
