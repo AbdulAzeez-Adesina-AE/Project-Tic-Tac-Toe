@@ -1,0 +1,38 @@
+# Tic Tac Toe Game
+
+This is a simple implementation of the classic Tic Tac Toe game using Python. Players can take turns placing their markers 'X' or 'O' on the game board until one of them wins or the game ends in a draw.
+
+## How to Play
+
+1. Clone or download this repository to your local machine.
+2. Open the Python file `tic_tac_toe.py` in your Python editor or IDE.
+3. Run the Python script, and the game will start.
+4. Players will be prompted to choose between 'X' and 'O'.
+5. The game board will be displayed, and each cell will be represented by a number (1-9).
+6. Players take turns entering the cell number where they want to place their marker.
+7. The game will check for a winner or a draw after each move.
+8. If a player wins, the game will display the winner, and if it's a draw, the game will end.
+
+## Sample Game Board
+
+1 | 2 | 3
+4 | 5 | 6
+7 | 8 | 9
+
+## How to play the game
+
+To play the game, follow these steps:
+
+1. Open a terminal or command prompt.
+2. Navigate to the directory where the `tic_tac_toe.py` file is located.
+3. Run the script using the following command:
+
+## Game Rules
+
+1. Players can only choose between 'X' and 'O' markers.
+2. Players take turns making their moves.
+3. A player wins if they have three of their markers in a horizontal, vertical, or diagonal row.
+4. If all cells on the board are filled and no player has won, the game ends in a draw.
+
+Enjoy the game and have fun playing Tic Tac Toe!
+

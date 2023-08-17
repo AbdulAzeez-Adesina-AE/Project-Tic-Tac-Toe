@@ -1,7 +1,6 @@
 
 
-# Board List with all 9 positions represented with an empty string
-
+# Sample Tic Tac Toe Game Board
 board = [' ' for _ in range(9)]
 
 # Smaple introduction to the game
@@ -70,7 +69,7 @@ def print_boards():
 def make_move(player, position):
      board[position - 1] = player
         
-#Checking if all positions on board have been filled
+#Checking if all positions on board have been filled: This was copied online and adapted into the code. Don't quite understand
 
 def is_board_full():
     for cell in board:
@@ -91,7 +90,6 @@ def is_winner(player):
         (board[2] == board[4] == board[6] == player)
     )
 
-# Function to simulate the game
 def tic_tac_toe_game():
     introduction()
    
@@ -142,3 +140,7 @@ def tic_tac_toe_game():
             print("Cell already taken. Try again.")
 
 tic_tac_toe_game()
+
+
+
+#identify_players()
